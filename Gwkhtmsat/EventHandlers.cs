@@ -1,3 +1,6 @@
+using Respawning;
+using Respawning.NamingRules;
+
 namespace Gwkhtmsat
 {
 	public class EventHandlers
@@ -8,15 +11,18 @@ namespace Gwkhtmsat
 
 		public void WaitingForPlayers()
 		{
-			Configs.Reload();
-			if (Configs.disabled)
+			if (!plugin.Config.IsEnabled)
 			{
 				return;
 			}
-			NineTailedFoxUnits ntfUnits = PlayerManager.localPlayer.GetComponent<NineTailedFoxUnits>();
-			foreach (var message in Configs.lines)
+			foreach (var text in plugin.Config.Lines)
 			{
-				ntfUnits.AddUnit(message);
+				SyncUnit mtfUnit = new SyncUnit
+				{
+					SpawnableTeam = (byte)SpawnableTeamType.NineTailedFox,
+					UnitName = text
+				};
+				RespawnManager.Singleton.NamingManager.AllUnitNames.Add(mtfUnit);
 			}
 		}
 	}

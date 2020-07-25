@@ -1,31 +1,37 @@
 using System;
-using EXILED;
+using Exiled;
+using Exiled.API;
+using Exiled.API.Features;
 
 namespace Gwkhtmsat
 {
-	public class Plugin : EXILED.Plugin
+	public class Plugin : Plugin<Configs>
 	{
 		public EventHandlers EventHandlers;
 
-		public override string getName { get; } = "Gwkhtmsat";
+		public override string Author { get; } = "Dark7eamplar#2683";
 
-		internal const string pluginVersion = "1.0";
+		public override string Name { get; } = "Gwkhtmsat";
 
-		internal const string pluginPrefix = "gwkhtmsat";
+		public override string Prefix { get; } = "GT";
 
-		public override void OnEnable()
+		public override Version Version { get; } = new Version(2, 0, 0);
+
+		public override Version RequiredExiledVersion { get; } = new Version(2, 0, 0);
+
+		public override Exiled.API.Enums.PluginPriority Priority { get; } = Exiled.API.Enums.PluginPriority.Medium;
+
+		public override void OnEnabled()
 		{
 			try
 			{
-				Configs.Reload();
-				if (Configs.disabled)
+				if (!Config.IsEnabled)
 				{
 					Log.Info("Gwkhtmsat is disabled by config setting");
 					return;
 				}
-				Log.Debug("Initializing event handlers..");
 				EventHandlers = new EventHandlers(this);
-				Events.WaitingForPlayersEvent += EventHandlers.WaitingForPlayers;
+				Exiled.Events.Handlers.Server.WaitingForPlayers += EventHandlers.WaitingForPlayers;
 				Log.Info($"Gwkhtmsat loaded");
 			}
 			catch (Exception e)
@@ -34,13 +40,13 @@ namespace Gwkhtmsat
 			}
 		}
 
-		public override void OnDisable()
+		public override void OnDisabled()
 		{
-			Events.WaitingForPlayersEvent -= EventHandlers.WaitingForPlayers;
+			Exiled.Events.Handlers.Server.WaitingForPlayers -= EventHandlers.WaitingForPlayers;
 			EventHandlers = null;
 		}
 
-		public override void OnReload()
+		public override void OnReloaded()
 		{
 		}
 	}

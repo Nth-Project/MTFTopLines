@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gwkhtmsat</RootNamespace>
-    <AssemblyName>Gwkhtmsat1.0</AssemblyName>
+    <AssemblyName>Gwkhtmsat</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,11 +36,11 @@
     <Reference Include="Assembly-CSharp_publicized">
       <HintPath>..\..\Dll dependencies\Assembly-CSharp_publicized.dll</HintPath>
     </Reference>
-    <Reference Include="EXILED, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Dll dependencies\EXILED.dll</HintPath>
+    <Reference Include="Exiled.API">
+      <HintPath>..\..\Dll dependencies\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="EXILED_Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Dll dependencies\EXILED_Events.dll</HintPath>
+    <Reference Include="Exiled.Events">
+      <HintPath>..\..\Dll dependencies\Exiled.Events.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
       <HintPath>..\..\Dll dependencies\Mirror.dll</HintPath>
