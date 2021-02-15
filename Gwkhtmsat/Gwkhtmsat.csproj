@@ -32,31 +32,71 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp_publicized">
-      <HintPath>..\..\Dll dependencies\Assembly-CSharp_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.API">
-      <HintPath>..\..\Dll dependencies\Exiled.API.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.Events">
-      <HintPath>..\..\Dll dependencies\Exiled.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Mirror">
-      <HintPath>..\..\Dll dependencies\Mirror.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\Dll dependencies\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\Dll dependencies\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Configs.cs" />
-    <Compile Include="EventHandlers.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp_publicized">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Assembly-CSharp_publicized.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.API">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Exiled.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Events">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Exiled.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Loader">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Exiled.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Permissions">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Exiled.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Updater">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Exiled.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\Mirror.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>..\..\..\..\Documents\ExiledRefs\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
